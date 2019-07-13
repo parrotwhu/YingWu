@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/theme_blue"/>
+    <corners android:topLeftRadius="15px"
+        android:topRightRadius="15px"
+        android:bottomRightRadius="15px"
+        android:bottomLeftRadius="15px"/>
+    <span style="font-family: Arial, Helvetica, sans-serif;"></span>
+</shape>
+

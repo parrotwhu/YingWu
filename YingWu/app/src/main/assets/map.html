@@ -1,0 +1,1274 @@
+<!doctype html>
+<html class="no-js">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="Content-Type" content="text/html; charset = utf-8" />
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>樱武</title>
+
+		<!-- Set render engine for 360 browser -->
+		<meta name="renderer" content="webkit">
+
+		<!-- No Baidu Siteapp-->
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+		<link rel="icon" type="image/png" href="assets/i/favicon.png">
+
+		<!-- Add to homescreen for Chrome on Android -->
+		<meta name="mobile-web-app-capable" content="yes">
+		<link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+
+		<!-- Add to homescreen for Safari on iOS -->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-title" content="Amaze UI" />
+		<link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+
+		<!-- Tile icon for Win8 (144x144 + tile color) -->
+		<meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
+		<meta name="msapplication-TileColor" content="#0e90d2">
+
+		<link rel="stylesheet" href="assets/css/amazeui.min.css">
+		<link rel="stylesheet" href="assets/css/app.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<style type="text/css">
+			html,
+			body {
+				width: 100%;
+				height: 100%;
+			}
+
+			body {
+				width: 100%;
+				height: 100%;
+			}
+
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+
+			body,
+			button,
+			input,
+			select,
+			textarea {
+				font: 12px/16px Verdana, Helvetica, Arial, sans-serif;
+			}
+
+			p {
+				width: 603px;
+				padding-top: 3px;
+				overflow: hidden;
+			}
+
+			.btn {
+				width: 142px;
+			}
+
+			#container {
+				min-width: 600px;
+				min-height: 767px;
+			}
+
+			/*设置弹窗的属性*/
+			.site_white_content {
+				display: block;
+				position: absolute;
+				top: 10%;
+				left: 35%;
+				width: 30%;
+				height: 80%;
+				padding: 20px;
+				opacity: 0.8;
+				border: 2px solid aliceblue;
+				z-index: 9999;
+				overflow: auto;
+				background-color: #B2E2FA;
+			}
+
+			.rule_white_content {
+				display: none;
+				position: absolute;
+				top: 10%;
+				left: 35%;
+				width: 30%;
+				height: 80%;
+				padding: 20px;
+				opacity: 0.5;
+				border: 2px solid aliceblue;
+				z-index: 1002;
+				overflow: auto;
+				background-color: #FFC028;
+			}
+
+			/*设置关闭弹窗的按钮的样式*/
+			.clsbutton {
+				position: absolute;
+				padding: 4px;
+				top: 0%;
+				left: 0%;
+				width: 28px;
+				height: 25px;
+				border-radius: 50%;
+				overflow: hidden;
+				border-style: solid;
+				border-color: cornflowerblue;
+			}
+
+			.clsbutton:hover {
+				box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+			}
+
+			.clsbutton:active {
+				box-shadow: 0 5px #666;
+				transform: translateY(4px);
+			}
+
+			.siteIntru {
+				position: absolute;
+	/* 			padding: 4px; */
+	 			top: 30%; 
+				left: 25%;
+				width:50%;
+				height: 20%;
+			}
+
+			#rulesIntru {
+				position: absolute;
+				padding: 4px;
+				top: 1%;
+				left: 35%;
+				width: 45px;
+				height: 44px;
+			}
+
+			.box {
+				top: 0%;
+				left: 5%;
+				width: 90%;
+				position: absolute;
+				height: 40%;
+				margin: 0 auto;
+			}
+
+			.barrage-container-wrap {
+				width: 90%;
+				height: 40%;
+				position: absolute;
+				overflow: hidden;
+				opacity: 0.5;
+				background-color: #FCFCFC;
+				z-index: 1002;
+				overflow: auto;
+				border-radius: 5px;
+				border: 2px solid #D6D6D6;
+			}
+
+			.barrage-container {
+
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0; 
+			    width: 100%;
+				height: 100%;
+				cursor: default;
+
+				-webkit-user-select: none;
+
+				-moz-user-select: none;
+
+				-ms-user-select: none;
+
+				user-select: none;
+			}
+
+			.barrage-item {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				white-space: nowrap;
+				cursor: pointer;
+				color: #fff;
+			}
+
+			.barrage-item .barrage-tip {
+
+				display: none;
+
+				position: absolute;
+ 				height: 100%; 
+			 	top: 100%; 
+
+				padding: 7px 15px;
+
+				line-height: 12px;
+
+				font-size: 12px;
+
+				color: #f20606;
+
+				background-color: #fff;
+
+				white-space: nowrap;
+
+				border: 1px solid #ddd;
+
+				border-radius: 8px;
+
+				-webkit-box-shadow: 0 0 10px 1px rgba(0, 0, 0, .1);
+
+				box-shadow: 0 0 10px 1px rgba(0, 0, 0, .1);
+
+				-webkit-transform-origin: 15px 100%;
+
+				-ms-transform-origin: 15px 100%;
+
+				transform-origin: 15px 100%;
+
+				webkit-animation: tipScale cubic-bezier(.22, .58, .12, .98) .8s;
+
+				animation: tipScale cubic-bezier(.22, .58, .12, .98) .8s;
+
+			}
+
+			/* .send-wrap {
+				margin-top: 0%;
+				left: 0%;
+				top: 0%;
+				height: 100%;
+width: 80%;
+			} */
+
+			.input {
+				position: absolute;
+				left: 12%;
+				width: 70%;
+				top: 10%;
+				height: 80%;
+				line-height: 5px;
+				outline: none;
+				-webkit-appearance: none;
+				border-radius: 10px;
+				opacity: 0.8;
+				/* padding: 0;
+				padding-left: 10px; */
+			}
+
+			.send-btn {
+				position: absolute;
+				top: 10%;
+				width: 10%;
+				left: 1%;
+				height: 80%;
+				/* 	line-height: 10px;
+				font-font-weight: bold; */
+				color: #fff;
+				background: #B2E2FA;
+				text-shadow: 1px 1px 1px #333;
+				border-radius: 15px;
+				/* margin:0 20px 20px 0;
+				position: absolute;
+				overflow: hidden;
+				cursor: pointer;
+				/* padding: 5px 15px; */
+			}
+
+			@-webkit-keyframes tipScale {
+
+				0 {
+
+					-webkit-transform: scale(0);
+
+					transform: scale(0);
+
+				}
+
+				50% {
+
+					-webkit-transform: scale(1.1);
+
+					transform: scale(1.1);
+
+				}
+
+				100% {
+
+					-webkit-transform: scale(1);
+
+					transform: scale(1);
+
+				}
+
+			}
+		</style>
+		<link  rel="stylesheet">
+		<script charset="utf-8" src="https://map.qq.com/api/js?v=2.exp&key=GBRBZ-EEDWS-PUXO4-6QBVG-HMGJO-D7BCI"></script>
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<script src="assets/js/amazeui.js"></script>
+
+	</head>
+	
+	<body onload="init()">
+		
+		<script>
+			
+			function openSiteDialog() {
+				$('#my-alert').modal();
+			}
+					//Android调用这个方法
+					//判断用户是否在景点内
+					//lat 纬度 lng 经度
+								var state=new Array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+								function isPositionSite(lat,lng){
+									console.log("景点");
+									var site=new Array(30.528306,30.539130,30.525754,30.538700,30.533100,30.541920,30.533210,30.540653,30.537721,30.534808,30.536940,30.538330,30.538671,30.536960,30.536650,30.537910,30.532514,30.537450,30.538770,30.540042,114.350195,114.362880,114.356804,114.364710,114.358000,114.360780,114.358320,114.372480,114.368270,114.358897,114.357350,114.361850,114.362115,114.361350,114.362440,114.363150,114.364360,114.366470,114.366270,114.366252);
+									
+												   for(var j=0;j<20;j++){
+					                                 console.log(site[j]);
+													   if(lat>(site[j]-0.001)&&lat<(site[j]+0.001)&&lng>site[j+20]-0.001&&lng<site[j+20]+0.001&&state[j]==0){
+														   console.log("第"+j+"个景点");
+													   	console.log("打开弹窗");
+														 openSiteDialog();
+														 state[j]=1;
+													   	console.log("真的打开");
+													   }
+													   else{
+														console.log("不在景点范围内");
+													   }
+												   }
+					}
+					
+						var map = null;
+						var marker=null;
+						    function init() {
+					    //定义map变量 调用 qq.maps.Map() 构造函数   获取地图显示容器
+						  map = new qq.maps.Map(document.getElementById("container"), {
+						  	center: new qq.maps.LatLng(30.533210,114.358320),
+						  	zoom:16,
+							panControl: false,
+							zoomControl: false,
+						  });
+					//设置Poi检索服务，用于本地检索、周边检索
+					searchService = new qq.maps.SearchService({
+					    complete: function(results) {
+					        //设置回调函数参数
+					        var pois = results.detail.pois;
+					        for (var i = 0, l = pois.length; i < l; i++) {
+					            var poi = pois[i];
+					            //扩展边界范围，用来包含搜索到的Poi点
+					            region.extend(poi.latLng);
+					             marker = new qq.maps.Marker({
+					                map: map,
+					                position: poi.latLng
+					            });
+					            marker.setTitle(i + 1);
+					            markers.push(marker);
+								marker.setIcon(icon);
+					        }
+					        //调整地图视野
+					        map.fitBounds(region);
+					    },
+					    //若服务请求失败，则运行以下函数
+					    error: function() {
+					        alert("哎呀，开小差了，请再试一次吧>-<");
+					    }
+					});
+					}			
+		function walkLine(lat,lng){
+			var walk_lines = [];			  
+			qq.maps.event.addListener(map, 'click', function(event) {
+				clearOverlay(walk_lines);
+				$.ajax({
+					type: 'GET',
+					url: 'https://apis.map.qq.com/ws/direction/v1/walking/?from='+lat+','+lng+'&to=' + event.latLng.getLat() +
+						',' + event.latLng.getLng() +
+						'&waypoints=30.532805,114.358358&key=GBRBZ-EEDWS-PUXO4-6QBVG-HMGJO-D7BCI&output=jsonp',
+					dataType: 'jsonp',
+					success: function(data) {
+			
+						console.log(data);
+						console.log(JSON.stringify(data));
+						var array = data.result.routes[0].polyline;
+											
+						for (var i = 2; i < array.length; i++) {
+							array[i] = array[i - 2] + array[i] / 1000000;
+						}
+						// document.getElementById("jarray").innerHTML = array[0] + "," + array[1];
+						var Arr = new Array(Math.ceil(array.length / 2));
+						for (var i = 0; i < Arr.length; i++) {
+							Arr[i] = new Array();
+							for (var j = 0; j < 2; j++) {
+								Arr[i][j] = '';
+							}
+						}
+						for (var i = 0; i < array.length; i++) {
+							Arr[parseInt(i / 2)][i % 2] = array[i];
+						}
+						// console.log(Arr);
+						for (var i = 0; i < Arr.length; i++) {
+							Arr[i] = new qq.maps.LatLng(Arr[i][0], Arr[i][1]);
+						}
+						console.log(Arr);
+						var polyline = new qq.maps.Polyline({
+							path: Arr,
+							strokeColor: '#0F9AE0',
+							strokeWeight: 3,
+							editable: false,
+							map: map,
+							visible: true,
+						});
+						walk_lines.push(polyline);
+					},
+					error: function(error) {
+						console.log("FAIL....=================");
+					}
+				});
+			});
+		}				
+		
+		var markLocation=null;
+			function setPosition(lat,lng){
+				console.log("lat:"+lat+",lng:"+lng)
+						map.setCenter(new qq.maps.LatLng(lat,lng));
+					if(markLocation == null){
+						markLocation= new qq.maps.Marker({
+						    position:new qq.maps.LatLng(lat,lng),
+						    map: map,
+						});
+					}else{
+						markLocation.setPosition(new qq.maps.LatLng(lat,lng));
+					}
+				 var anchor = new qq.maps.Point(0, 39),
+				      size = new qq.maps.Size(42, 68),
+				      origin = new qq.maps.Point(0, 0),
+				      markerIcon = new qq.maps.MarkerImage(
+				  "https://3gimg.qq.com/lightmap/api_v2/2/4/99/theme/default/imgs/marker.png",
+				  size, 
+				  origin,
+				  anchor
+				);
+				markLocation.setIcon(markerIcon);
+			}
+			
+
+			var markMarket=new Array(9);
+			var markWC=new Array(9);
+			var markCanteen=new Array(9);
+			var markSite=new Array(20);
+			var searchService,markers=[];
+			var anchor = new qq.maps.Point(0, 39),
+				size = new qq.maps.Size(42, 68),
+				origin = new qq.maps.Point(0, 0),
+				icon = new qq.maps.MarkerImage(
+					"http://yingwu.chinaeast.cloudapp.chinacloudapi.cn/marker.png",
+					size,
+					origin,
+					anchor
+				);
+				
+			var southWest=new qq.maps.LatLng(30.525887,114.355681);
+			var northEast=new qq.maps.LatLng(30.545320,114.377364);
+			var region = new qq.maps.LatLngBounds(southWest,northEast);
+			var countMarket=0,countWC=0,countSite=0,countCanteen=0;
+			function clearOverlay(overlays) {
+			    var overlay;
+			    while (overlay = overlays.pop()) {
+			        overlay.setMap(null);
+			    }
+			}
+			window.onload = function(){	
+		    init();
+			walkLine();
+		}
+			
+			function clearOverlays(overlays) {
+                var overlay;
+                while (overlay = overlays.pop()) {
+                    overlay.setMap(null);
+                }
+            }
+			//设置搜索的范围和关键字等属性
+			function searchKeyword(keyword) {
+				console.log("kw的值"+keyword);
+			   clearOverlays(markers);
+
+				var request = {
+					keyword:keyword,
+					region:region,
+					pageCapacity:5
+				};
+				searchService.setPageCapacity(5);
+				searchService.searchInBounds(keyword, region);
+			}
+		</script>
+		<!--景点介绍弹窗-->
+		<div class="am-modal am-modal-alert" tabindex="-1" id="my-alert">
+		  <div class="am-modal-dialog siteIntru">
+		    <div class="am-modal-hd">景点介绍</div>
+		    <div class="am-modal-bd">
+		      这是介绍
+		    </div>
+		    <div class="am-modal-footer">
+		      <span class="am-modal-btn">我知道了</span>
+		    </div>
+		  </div>
+		</div>
+		
+		<div class="am-g">
+			<div class="am-u-sm-11" id="container" style="width:100%;">
+			</div>
+			<div class=" am-u-sm-1 am-fr" style="padding-left:0;width:3.33333333%;top:35%;position:absolute;left:8%;">
+				<p><button type="button" class="am-icon-btn am-icon-male" style="border-style:none; background-color: #B2E2FA;" onclick="wcMark()"></button></p>
+				<script>
+					function wcMark(){
+						//var center=new qq.maps.LatLng(30.535620,114.364340);
+						clearOverlay(markWC);
+						clearOverlay(markSite);
+						clearOverlay(markMarket);
+						clearOverlay(markCanteen);
+						clearOverlays(markers);
+						countWC=countWC+1;
+						countCanteen=0;
+						countMarket=0;
+						countSite=0;
+						markWC[0]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.538720,114.361140),
+							map:map
+						});
+						markWC[1]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.530840,114.363870),
+							map:map
+						});
+						markWC[2]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.531660,114.372020),
+							map:map
+						});
+						markWC[3]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.540600,114.356640),
+							map:map
+						});
+						markWC[4]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.524460,114.361510),
+							map:map
+						});
+						markWC[5]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.527425,114.362599),
+							map:map
+						});
+						markWC[6]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.532826,114.356985),
+							map:map
+						});
+						markWC[7]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.531727,114.372025),
+							map:map
+						});
+						markWC[8]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.523010,114.364590),
+							map:map
+						});
+						    
+						for(var i=0;i<markWC.length;i++){
+							////设置Marker自定义图标的属性，size是图标尺寸，该尺寸为显示图标的实际尺寸，origin是切图坐标，该坐标是相对于图片左上角默认为（0,0）的相对像素坐标，anchor是锚点坐标，描述经纬度点对应图标中的位置
+							
+							
+							markWC[i].setIcon(icon);
+							// markWC[i].setShadow(iconb);
+						}
+						if(countWC%2==0)
+						{
+							
+							for(var i=0;i<markWC.length;i++)
+							{
+								markWC[i].setVisible(false);
+							}
+						}
+						else{
+							for(var i=0;i<markWC.length;i++)
+							{
+								markWC[i].setVisible(true);
+							}
+						}
+					}
+				</script>
+				<p><button type="button" style="border-style: none;background-color: #B2E2FA;" onclick="siteMark()" class="am-icon-btn am-icon-twitter"></button></p>
+				<script>
+					function siteMark(){
+						clearOverlay(markMarket);
+						clearOverlay(markWC);
+						clearOverlay(markCanteen);
+						clearOverlay(markSite);
+						clearOverlays(markers);
+						countMarket=0;
+						countCanteen=0;
+						countWC=0;
+						countSite=countSite+1;
+						markSite[0]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.528306,114.350195),
+							map:map
+						});
+						markSite[1]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.539130,114.362880),
+							map:map
+						});
+						markSite[2]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.539994,114.363519),
+							map:map
+						});
+						markSite[3]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.538700,114.364710),
+							map:map
+						});
+						markSite[4]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.533100,114.358000),
+							map:map
+						});
+						markSite[5]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.541920,114.360780),
+							map:map
+						});
+						markSite[6]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.533210,114.358320),
+							map:map
+						});
+						markSite[7]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.540653,114.372480),
+							map:map
+						});
+						markSite[8]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.537721,114.368270),
+							map:map
+						});
+						markSite[9]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.534808,114.358897),
+							map:map
+						});
+						markSite[10]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.536940,114.357350),
+							map:map
+						});
+						markSite[11]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.538330,114.361850),
+							map:map
+						});
+						markSite[12]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.538671,114.362115),
+							map:map
+						});
+						markSite[13]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.536960,114.361350),
+							map:map
+						});
+						markSite[14]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.536650,114.362440),
+							map:map
+						});
+						markSite[15]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.537910,114.363150),
+							map:map
+						});
+						markSite[16]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.532514,114.364360),
+							map:map
+						});
+						markSite[17]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.537450,114.366470),
+							map:map
+						});
+						markSite[18]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.538770,114.366270),
+							map:map
+						});
+						markSite[19]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.540042,114.366252),
+							map:map
+						});
+						for(var i=0;i<markSite.length;i++){
+							markSite[i].setIcon(icon);
+						}
+						
+						
+						if(countSite%2==0)
+						{
+							
+							for(var i=0;i<markSite.length;i++)
+							{
+								markSite[i].setVisible(false);
+							}
+						}
+						else{
+							for(var i=0;i<markSite.length;i++)
+							{
+								markSite[i].setVisible(true);
+							}
+						}
+
+					}
+				</script>
+				<p><button type="button" style="border-style: none;background-color: #B2E2FA;" onclick="marketMark()" class="am-icon-btn am-icon-cart-plus"></button></p>
+				<script>
+
+					function marketMark(){
+						countSite=0;
+						countCanteen=0;
+						countWC=0;
+						clearOverlay(markMarket);
+						clearOverlay(markWC);
+						clearOverlay(markCanteen);
+						clearOverlay(markSite);
+						clearOverlays(markers);
+						countMarket=countMarket+1;
+						markMarket[0]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.540120,114.357460),
+							map:map
+						});
+						markMarket[1]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.530210,114.364400),
+							map:map
+						});
+						markMarket[2]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.541650,114.366220),
+							map:map
+						});
+						markMarket[3]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.541930,114.370290),
+							map:map
+						});
+						markMarket[4]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.530600,114.360270),
+							map:map
+						});
+						markMarket[5]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.537530,114.372290),
+							map:map
+						});
+						markMarket[6]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.540443,114.357330),
+							map:map
+						});
+						markMarket[7]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.526249,114.359345),
+							map:map
+						});
+						markMarket[8]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.531860,114.368080),
+							map:map
+						});
+						console.log(markMarket);
+						for(var i=0;i<markMarket.length;i++){
+							markMarket[i].setIcon(icon);
+						}
+						
+						if(countMarket%2==0)
+						{
+							
+							for(var i=0;i<markMarket.length;i++)
+							{
+								markMarket[i].setVisible(false);
+							}
+						}
+						else{
+							for(var i=0;i<markMarket.length;i++)
+							{
+								markMarket[i].setVisible(true);
+							}
+						}
+						
+					}
+				</script>
+				<p><button type="button" style="border-style: none;background-color: #B2E2FA;" onclick="canteenMark()" class="am-icon-btn am-icon-cutlery"></button></p>
+				<script>
+
+					function canteenMark(){
+						clearOverlay(markMarket);
+						clearOverlay(markWC);
+						clearOverlay(markCanteen);
+						clearOverlay(markSite);
+						clearOverlays(markers);
+						countCanteen=countCanteen+1;
+						countMarket=0;
+						countSite=0;
+						countWC=0;
+						markCanteen[0]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.535620,114.364340),
+							map:map
+						});
+						markCanteen[1]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.541590,114.370410),
+							map:map
+						});
+						markCanteen[2]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.537320,114.371730),
+							map:map
+						});
+						markCanteen[3]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.539740,114.362380),
+							map:map
+						});
+						markCanteen[4]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.528200,114.359160),
+							map:map
+						});
+						markCanteen[5]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.543008,114.365786),
+							map:map
+						});
+						markCanteen[6]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.534700,114.299510),
+							map:map
+						});
+						markCanteen[7]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.543905,114.365819),
+							map:map
+						});
+						markCanteen[8]=new qq.maps.Marker({
+							position:new qq.maps.LatLng(30.527883,114.354345),
+							map:map
+						});
+						for(var i=0;i<markCanteen.length;i++){
+							markCanteen[i].setIcon(icon);
+						}
+						
+						if(countCanteen%2==0)
+						{
+							
+							for(var i=0;i<markCanteen.length;i++)
+							{
+								markCanteen[i].setVisible(false);
+							}
+						}
+						else{
+							for(var i=0;i<markCanteen.length;i++)
+							{
+								markCanteen[i].setVisible(true);
+							}
+						}
+					}
+				</script>
+			</div>
+		</div>
+		
+		
+		<!--下边发送弹幕代码-->
+		<!-- <header class="am-topbar  am-topbar-fixed-bottom">
+			<div class="am-collapse am-topbar-collapse am-g" id="doc-topbar-collapse">
+				<input type="text" class="input" placeholder="弹幕发送">
+				<span class="send-btn">
+					<h1 style="position: absolute;top: 28%;left: 35%;">发送</h1>
+				</span>
+				<div class="am-topbar-right">
+					<button class="am-btn am-btn-primary am-topbar-btn am-btn-sm">附近的人</button>
+				</div>
+			</div>
+		</header>
+		</div> -->
+		<!--发送弹幕代码结束-->	
+	</body>
+	
+	<script>
+		// openSiteDialog();
+		// 
+		;(function() {
+
+			var barrageArray = [
+
+				{
+
+					url: '用户头像',
+
+					text: '秋天爱美丽',
+
+					level: 10
+
+				},
+
+				{
+
+					url: '用户头像',
+
+					text: '今天很开心啊',
+
+					level: 10
+
+				},
+
+				{
+
+					url: '用户头像',
+
+					text: 'winter has come',
+
+					level: 10
+
+				},
+
+				{
+
+					url: '',
+
+					text: '土耳其现在形势',
+
+					level: 10
+
+				},
+
+				{
+
+					url: '',
+
+					text: '没事早点回家吃饭啊',
+
+					level: 10
+
+				},
+
+				{
+
+					url: '',
+
+					text: '这主角真实醉了，不会回啊',
+
+					level: 10
+
+				},
+
+				{
+
+					url: '',
+
+					text: '背景音乐真好听啊',
+
+					level: 10
+
+				},
+
+				{
+
+					url: '',
+
+					text: '背景音乐是***',
+
+					level: 10
+
+				},
+
+				{
+
+					url: '',
+
+					text: '经费在燃烧啊',
+
+					level: 10
+
+				},
+
+				{
+
+					url: '',
+
+					text: '国产良心剧',
+
+					level: 10
+				},
+
+			];
+
+			var barrageColorArray = [
+
+				'#CD0000', '#B23AEE', '#9A32CD', '#242424', '#0000EE', '#8B0000', '#CD3333', '#FF3030', '#8B4513'
+
+			];
+
+			var barrageTipWidth = 120; //提示语的长度
+
+
+
+			var barrageBoxWrap = document.querySelector('.barrage-container-wrap');;
+
+			var barrageBox = document.querySelector('.barrage-container');
+
+			var inputBox = document.querySelector('.input');
+
+			var sendBtn = document.querySelector('.send-btn');
+
+
+
+			//容器的宽高度
+
+			var barrageWidth = ~~window.getComputedStyle(barrageBoxWrap).width.replace('px', '');
+
+			var barrageHeight = ~~window.getComputedStyle(barrageBoxWrap).height.replace('px', '');
+
+
+
+			//发送
+
+			function sendMsg() {
+
+				var inputValue = inputBox.value;
+
+				inputValue.replace(/\ +/g, "");
+
+
+
+				if (inputValue.length <= 0) {
+
+					alert('请输入');
+
+					return false;
+
+				}
+
+
+
+				//生成弹幕
+
+				createBarrage(inputValue, true);
+
+				inputBox.value ='';
+
+			}
+
+
+
+
+
+			//创建弹幕
+
+			function createBarrage(msg, isSendMsg) {
+
+				var divNode = document.createElement('div');
+
+				var spanNode = document.createElement('span');
+
+
+
+				divNode.innerHTML = msg;
+
+				divNode.classList.add('barrage-item');
+
+				barrageBox.appendChild(divNode);
+
+
+
+				spanNode.innerHTML = '举报';
+
+				spanNode.classList.add('barrage-tip');
+
+				divNode.appendChild(spanNode);
+
+
+
+				barrageOffsetLeft = getRandom(barrageWidth, barrageWidth * 2);
+
+				barrageOffsetLeft = isSendMsg ? barrageWidth : barrageOffsetLeft
+
+				barrageOffsetTop = getRandom(15, barrageHeight);
+
+				barrageColor = barrageColorArray[Math.floor(Math.random() * (barrageColorArray.length))];
+
+
+
+				//执行初始化滚动
+
+				initBarrage.call(divNode, {
+
+					left: barrageOffsetLeft,
+
+					top: barrageOffsetTop,
+
+					color: barrageColor
+
+				});
+
+			}
+
+
+
+			//初始化弹幕移动(速度，延迟)
+
+			function initBarrage(obj) {
+
+				//初始化
+
+				obj.top = obj.top || 0;
+
+				obj.class = obj.color || '#fff';
+
+				this.style.left = obj.left + 'px';
+
+				this.style.top = obj.top + 'px';
+
+				this.style.color = obj.color;
+
+
+
+				//添加属性
+
+				this.distance = 0;
+
+				this.width = ~~window.getComputedStyle(this).width.replace('px', '');
+
+				this.offsetLeft = obj.left;
+
+				this.timer = null;
+
+
+
+				//弹幕子节点
+
+				var barrageChileNode = this.children[0];
+
+				barrageChileNode.style.left = (this.width - barrageTipWidth) / 2 + 'px';
+
+
+
+				//运动
+
+				barrageAnimate(this);
+
+
+
+				//停止
+
+				this.onmouseenter = function() {
+
+					barrageChileNode.style.display = 'block';
+
+					cancelAnimationFrame(this.timer);
+
+				};
+
+
+
+				this.onmouseleave = function() {
+
+					barrageChileNode.style.display = 'none';
+
+					barrageAnimate(this);
+
+				};
+
+
+
+				//举报
+
+				barrageChileNode.onclick = function() {
+
+					alert('举报成功');
+
+				}
+
+			}
+
+
+
+			//弹幕动画
+
+			function barrageAnimate(obj) {
+
+				move(obj);
+
+
+
+				if (Math.abs(obj.distance) < obj.width + obj.offsetLeft) {
+
+					obj.timer = requestAnimationFrame(function() {
+
+						barrageAnimate(obj);
+
+					});
+
+				} else {
+
+					cancelAnimationFrame(obj.timer);
+
+					//删除节点
+
+					obj.parentNode.removeChild(obj);
+
+				}
+
+			}
+
+
+
+			//移动
+
+			function move(obj) {
+
+				obj.distance--;
+
+				obj.style.transform = 'translateX(' + obj.distance + 'px)';
+
+				obj.style.webkitTransform = 'translateX(' + obj.distance + 'px)';
+
+			}
+
+
+
+			//随机获取高度
+
+			function getRandom(start, end) {
+            return 3+(Math.random() * (end - start));
+				// return start + (Math.random() * (end - start));
+
+			}
+
+
+
+
+
+			/*******初始化事件**********/
+
+			//系统数据
+
+			barrageArray.forEach(function(item, index) {
+
+				createBarrage(item.text, false);
+
+			});
+
+
+
+			//点击发送
+
+			sendBtn.onclick = sendMsg; //点击发送
+
+
+
+			//回车
+
+			inputBox.onkeydown = function(e) {
+
+				e = e || window.event;
+
+				if (e.keyCode == 13) {
+
+					send();
+
+				}
+
+			}
+		})()
+
+		function openRuleDialog() {
+			document.getElementById("rule_light").style.display = 'block';
+		}
+
+		function closeRuleDialog() {
+			document.getElementById('rule_light').style.display = 'none';
+		}
+
+		function closeDanMuDialog() {
+			document.getElementById('dan_mu').style.display = 'none';
+		}
+	</script>
+</html>

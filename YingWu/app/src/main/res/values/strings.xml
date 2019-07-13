@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">yingwu</string>
+    <string name="translating">翻译中</string>
+    <string name="translated">已翻译</string>
+    <string name="show">show</string>
+    <string name="全文">全文</string>
+    <string name="address">武汉大学</string>
+    <string name="朋友圈">朋友圈</string>
+    <string name="赞">赞</string>
+    <string name="翻译中">翻译中</string>
+    <string name="复制">复制</string>
+    <string name="收藏">收藏</string>
+    <string name="隐藏翻译">隐藏翻译</string>
+    <string name="翻译">翻译</string>
+</resources>
